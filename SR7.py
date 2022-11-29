@@ -64,13 +64,13 @@ if RADR:
 #Boton
 
 boton1 = st.button("Combinar")
-    if boton1:
-        df3 = df1.merge(df2, left_on='Approval Code', right_on='Approval Code', how='inner' )
-        df3 = df3.drop_duplicates("Order No.") #Remover ordenes duplicadas
-        amount = df3['Amount']*-1
-        amountAppl = df3['Amount (Applied)']
-        df3['Pending funds'] = amount - amountAppl
-        df3['Type'] = np.where(df3['Pending funds'] == 0, 'Full refund', 'Partial refund')
+if boton1:
+    df3 = df1.merge(df2, left_on='Approval Code', right_on='Approval Code', how='inner' )
+    df3 = df3.drop_duplicates("Order No.") #Remover ordenes duplicadas
+    amount = df3['Amount']*-1
+    amountAppl = df3['Amount (Applied)']
+    df3['Pending funds'] = amount - amountAppl
+    df3['Type'] = np.where(df3['Pending funds'] == 0, 'Full refund', 'Partial refund')
 
 # Part 2:
 
