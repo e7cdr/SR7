@@ -55,7 +55,7 @@ if RADR:
     xlsxRADR = pd.read_excel(RADR, engine='openpyxl')
     df2 = xlsxRADR[["Reference Number","Approval Code", "Amount (Applied)","Remarks"]]
     st.dataframe(df2)
-    df2['Left'] = df2['Approval Code'].str[:6]  # LEFT() Equivalent
+    df2['Approval Code'] = df2['Approval Code'].str[:6]  # LEFT() Equivalent
 
     #df2['Right'] = df2['Approval Code'].str[6:]  # RIGHT() Equivalent
 
