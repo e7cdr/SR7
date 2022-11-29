@@ -62,20 +62,19 @@ if RADR:
 #Para combinar dos archivos que tengan una columna de datos en comun. Inner = Interseccion
 
 #Boton
+
 boton1 = st.button("Combinar")
-
-df3 = df1.merge(df2, left_on='Approval Code', right_on='Approval Code', how='inner' )
-df3 = df3.drop_duplicates("Order No.") #Remover ordenes duplicadas
-
+    if boton1:
+        df3 = df1.merge(df2, left_on='Approval Code', right_on='Approval Code', how='inner' )
+        df3 = df3.drop_duplicates("Order No.") #Remover ordenes duplicadas
+        amount = df3['Amount']*-1
+        amountAppl = df3['Amount (Applied)']
+        df3['Pending funds'] = amount - amountAppl
+        df3['Type'] = np.where(df3['Pending funds'] == 0, 'Full refund', 'Partial refund')
 
 # Part 2:
 
 # Agregando columnas y formulas para el Pending funds y el Type
-
-amount = df3['Amount']*-1
-amountAppl = df3['Amount (Applied)']
-df3['Pending funds'] = amount - amountAppl
-df3['Type'] = np.where(df3['Pending funds'] == 0, 'Full refund', 'Partial refund')
 
 """
 # RESULTADO
