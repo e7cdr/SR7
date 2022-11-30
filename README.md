@@ -1,3 +1,3 @@
-# SR7
+# Legacy
 
 Ver.1.0
