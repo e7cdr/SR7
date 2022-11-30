@@ -61,7 +61,7 @@ if RADR:
 
 #Para combinar dos archivos que tengan una columna de datos en comun. Inner = Interseccion
 
-#Boton
+#Boton de combinar
 
 boton1 = st.button("Combinar")
 if boton1:
@@ -71,16 +71,11 @@ if boton1:
     amountAppl = df3['Amount (Applied)']
     df3['Pending funds'] = amount - amountAppl
     df3['Type'] = np.where(df3['Pending funds'] == 0, 'Full refund', 'Partial refund')
-
-# Part 2:
-
-# Agregando columnas y formulas para el Pending funds y el Type
+    st.dataframe(df3)
 
 """
 # RESULTADO
 """
-st.dataframe(df3)
-
 #fondo de la pagina Downloads
 st.subheader('Descargas:')
 generate_excel_download_link(df3)
