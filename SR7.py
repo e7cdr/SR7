@@ -27,7 +27,7 @@ def generate_excel_download_link(df3):
 #Libreria para interactuar con archivos office
 
 """
-# SR7 - Combinador de archivos
+# Legacy
 
 Crea un archivo de excel haciendo matching entre dos tablas.
 
